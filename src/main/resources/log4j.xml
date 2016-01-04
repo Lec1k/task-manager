@@ -10,7 +10,7 @@
         </layout>
     </appender>
 
-    <logger name="src">
+    <logger name="app">
         <level value="DEBUG"/>
     </logger>
 

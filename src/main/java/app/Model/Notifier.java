@@ -1,10 +1,10 @@
 package app.Model;
 
+import app.Controller.Main;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
-import javafx.scene.control.Alert;
-import app.Controller.Main;
 import javafx.concurrent.Task;
+import javafx.scene.control.Alert;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
