@@ -20,7 +20,7 @@ public class StartDialogue {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/fxml/editDialogue.fxml"));
         Stage addDialogStage = new Stage();
-        addDialogStage.setTitle("Task by id");
+        addDialogStage.setTitle("Edit/Delete task");
         addDialogStage.setScene(new Scene((Parent) loader.load()));
 
         EditDialogueController controller = loader.getController();

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.text.ParseException;
 
 public class Main extends Application {
-    public static File f = new File("src/main/resources/data/tasklist.dat");
+    public static File f = new File("tasklist.dat");
     private static final org.slf4j.Logger Log = LoggerFactory.getLogger(Main.class);
 
 

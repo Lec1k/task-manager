@@ -68,6 +68,7 @@ public class Controller {
     }
 
     public void findButtonHandler() throws IOException, ParseException,ClassNotFoundException{
+        boolean check=false;
         try {
             if (inputId.getText().matches("\\d+\\d?+\\d?")) {
                 Task temp = Main.arrayTaskList.getTask(Integer.valueOf(inputId.getText()));
@@ -80,9 +81,18 @@ public class Controller {
                     if (Main.arrayTaskList.getTask(i).getTitle().equals(inputId.getText())) {
                         Log.debug("Task by name was found");
                         Task temp = Main.arrayTaskList.getTask(i);
+                        check=true;
                         StartDialogue.startEditDialogue(temp);
                         Log.debug("Edit dialogue window called");
+
                     }
+                }
+                if(!check){
+                    Log.debug("Error called if  input is wrong");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Wrong input");
+                    alert.setHeaderText("There is no task with such title");
+                    alert.showAndWait();
                 }
             }
         }
