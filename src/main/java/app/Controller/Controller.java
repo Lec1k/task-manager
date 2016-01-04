@@ -87,13 +87,14 @@ public class Controller {
 
                     }
                 }
-                if(!check){
+                if(!check && !(inputId.getText().length()==0)){
                     Log.debug("Error called if  input is wrong");
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Wrong input");
                     alert.setHeaderText("There is no task with such title");
                     alert.showAndWait();
                 }
+                else {throw new Exception();}
             }
         }
         catch (Exception e ){
