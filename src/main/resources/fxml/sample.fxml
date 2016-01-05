@@ -10,12 +10,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="658.0" style="-fx-border-style: solid; -fx-border-width: 1.5px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.Controller">
    <children>
       <Button fx:id="findButton" layoutX="188.0" layoutY="238.0" mnemonicParsing="false" onAction="#findButtonHandler" onMouseMoved="#findInfo" text="Find" />
       <Button fx:id="addButton" layoutX="327.0" layoutY="270.0" mnemonicParsing="false" onAction="#addButtonHandler" text="Add new tasks" />
       <TextArea fx:id="incomingTextArea" editable="false" layoutX="14.0" layoutY="31.0" prefHeight="176.0" prefWidth="629.0" />
-      <TextField fx:id="inputId" layoutX="14.0" layoutY="238.0" onMouseMoved="#findInfo" promptText="Input id" />
+      <TextField fx:id="inputId" layoutX="14.0" layoutY="238.0" onMouseMoved="#findInfo" promptText="Input id or title" />
       <Button fx:id="exitButton" layoutX="595.0" layoutY="295.0" mnemonicParsing="false" onAction="#exitButtonHandler" prefHeight="19.0" prefWidth="49.0" text="Exit" />
       <Button fx:id="showButton" layoutX="327.0" layoutY="238.0" mnemonicParsing="false" onAction="#fillTextArea" text="Show tasks" />
       <Label fx:id="todayDate" layoutX="14.0" layoutY="6.0" prefHeight="19.0" prefWidth="301.0" />
