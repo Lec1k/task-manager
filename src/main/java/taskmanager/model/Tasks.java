@@ -1,4 +1,4 @@
-package java.taskmanager.model;
+package taskmanager.model;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

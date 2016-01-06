@@ -1,6 +1,6 @@
-package java.taskmanager.model;
-import java.taskmanager.controller.Main;
+package taskmanager.model;
 
+import taskmanager.controller.Main;
 import java.io.*;
 import java.text.ParseException;
 

@@ -1,8 +1,8 @@
-package java.taskmanager.view;
+package taskmanager.view;
 
-import java.taskmanager.controller.EditDialogueController;
-import java.taskmanager.controller.Main;
-import java.taskmanager.model.Task;
+import taskmanager.controller.EditDialogueController;
+import taskmanager.controller.Main;
+import taskmanager.model.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

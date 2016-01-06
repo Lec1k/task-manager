@@ -1,9 +1,9 @@
-package java.taskmanager.controller;
+package taskmanager.controller;
 
-import java.taskmanager.model.LinkedTaskList;
-import java.taskmanager.model.Notifier;
-import java.taskmanager.model.Task;
-import java.taskmanager.model.TaskIO;
+import taskmanager.model.LinkedTaskList;
+import taskmanager.model.Notifier;
+import taskmanager.model.Task;
+import taskmanager.model.TaskIO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

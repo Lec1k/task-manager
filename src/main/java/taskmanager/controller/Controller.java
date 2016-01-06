@@ -1,8 +1,8 @@
-package java.taskmanager.controller;
+package taskmanager.controller;
 
-import java.taskmanager.model.Task;
-import java.taskmanager.model.TaskIO;
-import java.taskmanager.view.StartDialogue;
+import taskmanager.model.Task;
+import taskmanager.model.TaskIO;
+import taskmanager.view.StartDialogue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.slf4j.LoggerFactory;
