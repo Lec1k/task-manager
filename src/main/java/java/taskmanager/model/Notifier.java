@@ -1,6 +1,6 @@
-package app.Model;
+package java.taskmanager.model;
 
-import app.Controller.Main;
+import java.taskmanager.controller.Main;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;

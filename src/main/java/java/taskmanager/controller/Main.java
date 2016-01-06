@@ -1,9 +1,9 @@
-package app.Controller;
+package java.taskmanager.controller;
 
-import app.Model.LinkedTaskList;
-import app.Model.Notifier;
-import app.Model.Task;
-import app.Model.TaskIO;
+import java.taskmanager.model.LinkedTaskList;
+import java.taskmanager.model.Notifier;
+import java.taskmanager.model.Task;
+import java.taskmanager.model.TaskIO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,7 +25,7 @@ public class Main extends Application {
     public void stop(){
         try {
             TaskIO.writeBinary(Main.arrayTaskList, Main.f);
-            Log.debug("Saving files and closing the app.");
+            Log.debug("Saving files and closing the taskmanager.");
         }
         catch (Exception e ){
             e.printStackTrace();

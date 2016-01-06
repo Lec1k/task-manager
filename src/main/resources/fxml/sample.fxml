@@ -10,7 +10,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java.taskmanager.controller.Controller">
    <children>
       <Button fx:id="findButton" layoutX="188.0" layoutY="238.0" mnemonicParsing="false" onAction="#findButtonHandler" onMouseMoved="#findInfo" text="Find" />
       <Button fx:id="addButton" layoutX="327.0" layoutY="270.0" mnemonicParsing="false" onAction="#addButtonHandler" text="Add new tasks" />

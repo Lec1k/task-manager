@@ -1,4 +1,4 @@
-package app.Model;
+package java.taskmanager.model;
 
 import java.io.IOException;
 import java.io.Serializable;

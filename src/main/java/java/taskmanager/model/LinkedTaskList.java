@@ -1,4 +1,4 @@
-package app.Model;
+package java.taskmanager.model;
 import java.io.Serializable;
 import java.util.Iterator;
 

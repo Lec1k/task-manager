@@ -1,6 +1,6 @@
-package app.Controller;
+package java.taskmanager.controller;
 
-import app.Model.Task;
+import java.taskmanager.model.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;

@@ -1,9 +1,8 @@
-package app.Model;
-import app.Controller.Main;
+package java.taskmanager.model;
+import java.taskmanager.controller.Main;
 
 import java.io.*;
 import java.text.ParseException;
-import java.util.Arrays;
 
 /**
  * TaskIO created for byte and stream IO.

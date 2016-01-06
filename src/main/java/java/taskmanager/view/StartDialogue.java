@@ -1,8 +1,8 @@
-package app.View;
+package java.taskmanager.view;
 
-import app.Controller.EditDialogueController;
-import app.Controller.Main;
-import app.Model.Task;
+import java.taskmanager.controller.EditDialogueController;
+import java.taskmanager.controller.Main;
+import java.taskmanager.model.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

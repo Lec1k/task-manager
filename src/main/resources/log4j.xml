@@ -10,7 +10,7 @@
         </layout>
     </appender>
 
-    <logger name="app">
+    <logger name="taskmanager">
         <level value="DEBUG"/>
     </logger>
 
