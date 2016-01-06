@@ -139,10 +139,6 @@ public class Controller {
             alert.setHeaderText("Check Date format!");
             alert.showAndWait();
         }
-
-         //   incomingTextArea.setText(Main.arrayTaskList.toString());
-
-
     }
 
 }

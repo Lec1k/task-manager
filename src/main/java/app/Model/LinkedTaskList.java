@@ -98,8 +98,6 @@ public class LinkedTaskList extends TaskList implements Cloneable{
     public int hashCode() {
        int result = 1;
         LinkedTask tmp = this.firstTask;
-// = firstTask != null ? firstTask.hashCode() : 0;
-//        result = 31 * result + (lastTask != null ? lastTask.hashCode() : 0);
         for(int i=0;i<listLength;i++){
             result = 31 * result + (tmp.currentTask != null ? tmp.currentTask.hashCode() : 0);
             tmp = tmp.nextTask;
@@ -179,20 +177,6 @@ public class LinkedTaskList extends TaskList implements Cloneable{
         return res;
 
     }
-
-//    public  LinkedTaskList incoming(Date from, Date to) throws IOException{
-//       // if(from<0 || to<=0){throw new IOException("wrong value");}
-//        LinkedTaskList newTaskList = new LinkedTaskList();
-//        Date temp;
-//        for (int i = 0; i < size(); i++) {
-//            temp = this.getTask(i).getTime();
-//            if (temp.before(to) && temp.after(from)) {
-//                newTaskList.add(this.getTask(i));
-//            }
-//        }
-//        return newTaskList;
-//
-//    }
 
     /**
      * Removes linked task from the list.

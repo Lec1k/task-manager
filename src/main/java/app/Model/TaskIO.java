@@ -83,27 +83,14 @@ public class TaskIO {
                     temp.setIntervalTime(dataInputStream.readInt());
                     temp.setTime(dataInputStream.readByte() + " " + (dataInputStream.readByte() + 1) + " " + (dataInputStream.readByte() + 1900)
                             + " " + dataInputStream.readByte() + ":" + dataInputStream.readByte());
-//                temp.getTime().setDate(dataInputStream.readByte());
-//                temp.getTime().setMonth(dataInputStream.readByte());
-//                temp.getTime().setYear(dataInputStream.readByte());
-//                temp.getTime().setHours(dataInputStream.readByte());
-//                temp.getTime().setMinutes(dataInputStream.readByte());
+
                     temp.setNewEndTime(dataInputStream.readByte() + " " + (dataInputStream.readByte() + 1) + " " + (dataInputStream.readByte() + 1900)
                             + " " + dataInputStream.readByte() + ":" + dataInputStream.readByte());
-//                temp.getEndTime().setDate(dataInputStream.readByte());
-//                temp.getEndTime().setMonth(dataInputStream.readByte());
-//                temp.getEndTime().setYear(dataInputStream.readByte());
-//                temp.getEndTime().setHours(dataInputStream.readByte());
-//                temp.getEndTime().setMinutes(dataInputStream.readByte());
+
                     temp.setRepeatable(true);
                 } else {
                     temp.setTime(dataInputStream.readByte() + " " + (dataInputStream.readByte() + 1) + " " + (dataInputStream.readByte() + 1900)
                             + " " + dataInputStream.readByte() + ":" + dataInputStream.readByte());
-//                temp.getTime().setDate(dataInputStream.readByte());
-//                temp.getTime().setMonth(dataInputStream.readByte());
-//                temp.getTime().setYear(dataInputStream.readByte());
-//                temp.getTime().setHours(dataInputStream.readByte());
-//                temp.getTime().setMinutes(dataInputStream.readByte());
                 }
                 tasks.add(temp);
             }
@@ -195,38 +182,6 @@ public class TaskIO {
         fileWriter.flush();
         fileWriter.close();
             }
-    }
-
-    /**
-     * Reads task list as text from file and save it to the new task list.
-     * @param tasks destination for saving tasks
-     * @param file file to read
-     * @throws IOException
-     * @throws ParseException
-     */
-    public static void readText(TaskList tasks, File file)throws IOException,ParseException{
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        Task temp = new Task();
-        char[] cbuf = new char[100];
-        char[] cbufTitle = new char[25];
-        char[] cbufTime= new char[25];
-        char[] cbufEndTime = new char[25];
-        for(int i =0;i<tasks.size();i++) {
-            bufferedReader.read(cbuf);
-            cbufTitle = Arrays.copyOfRange(cbuf, 1, 5);
-            cbufTime = Arrays.copyOfRange(cbuf, 12, 29);
-            cbufEndTime = Arrays.copyOfRange(cbuf, 32, 49);
-            String s = new String(cbufEndTime);
-//            System.out.println(s);
-            temp.setTitle(s);
-            int interval = Integer.parseInt(new String(Arrays.copyOfRange(cbuf, 55, 59)));
-//            System.out.println(interval);
-//        s = new String(cbufTime);
-            temp.setTitle(new String(cbufTitle));
-        temp.setTime(new String(cbufTime),new String(cbufEndTime),interval);
-        tasks.add(temp);
-        }
     }
 
     /**

@@ -70,18 +70,7 @@ public class ArrayTaskList extends TaskList implements Cloneable{
             }
         }
         return false;
-    }
-//    public ArrayTaskList incoming(Date from, Date to)throws IOException{
-//       // if(from<0 || to<=0){throw new IOException("wrong value");}
-//        ArrayTaskList incTasks = new ArrayTaskList();
-//        for(int i=0;i<counter;i++){
-//            if(taskList[i].getTime().before(to) && taskList[i].getTime().after(from)){
-//                incTasks.add(taskList[i]);
-//
-//            }
-//        }
-//        return incTasks;
-//    }
+}
 
     /**
      * Standard overriden method to compare to array lists of tasks.
@@ -94,8 +83,6 @@ public class ArrayTaskList extends TaskList implements Cloneable{
         if (o == null || getClass() != o.getClass()) return false;
 
         ArrayTaskList that = (ArrayTaskList) o;
-
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
         return Arrays.equals(taskList, that.taskList);
 
     }
