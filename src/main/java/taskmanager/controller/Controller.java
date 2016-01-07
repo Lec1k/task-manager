@@ -119,6 +119,7 @@ public class Controller {
     }
 
     public  void fillTextArea() throws IOException, ParseException,ClassNotFoundException {
+        boolean check = false;
         setTodayDate();
         try {
             if(fromTextField.getText().length()==0 || toTextField.getText().length()==0){
@@ -128,9 +129,10 @@ public class Controller {
             else {
                 incomingTextArea.setText((Main.arrayTaskList.incoming(fromTextField.getText(),
                         toTextField.getText())).toString());
+                check =true;
                 LOG.debug("Text area filled with tasks with specific dates chosen by user");
             }
-            if (incomingTextArea.getText().length()==0){
+            if (incomingTextArea.getText().length()==0 && !check){
                 LOG.warn("Warning called if list of tasks is empty");
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("List is empty");
