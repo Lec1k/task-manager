@@ -1,5 +1,6 @@
 package taskmanager.model;
 
+import org.slf4j.LoggerFactory;
 import taskmanager.controller.Main;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
@@ -13,6 +14,8 @@ import java.util.Date;
  * Created by LeC1K on 02.01.2016.
  */
 public class Notifier {
+
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(Notifier.class);
     LinkedTaskList linkedTaskList;
     SimpleDateFormat format = new SimpleDateFormat("dd MM yyyy HH:mm");
     public Service<Void> service = new Service<Void>() {
@@ -28,7 +31,7 @@ public class Notifier {
 
                             public void run() {
                                 try {
-                                    if (linkedTaskList != null) {
+                                    if (linkedTaskList.size()>0) {
                                         Alert alert = new Alert(Alert.AlertType.WARNING);
                                         alert.setTitle("Incoming Tasks");
                                         alert.setHeaderText("Those tasks should be completed soon!");
@@ -37,14 +40,14 @@ public class Notifier {
 
                                     }
                                 } catch (Exception e) {
-                                    e.printStackTrace();
+                                    LOG.error("Some unpredicted exception occurred ",e);
                                 }
                             }
                         });
                         try {
                             Thread.sleep(60000);
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            LOG.error("Stream is interrupted", e);
                         }
                     }
                     return null;

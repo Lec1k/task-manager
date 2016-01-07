@@ -69,8 +69,8 @@ public class Tasks {
 
                         for(long i = 0;i<time;i++){
 
-                            Task temp = new Task(t.getTitle(), Task.format.format(t.getTime().getTime()+t.getRepeatInterval()*i+1),
-                                                 Task.format.format(t.getEndTime()),t.getRepeatInterval());
+                            Task temp = new Task(t.getTitle(), Task.FORMAT.format(t.getTime().getTime()+t.getRepeatInterval()*i+1),
+                                                 Task.FORMAT.format(t.getEndTime()),t.getRepeatInterval());
 
 //                            temp.getTime().setTime(temp.getTime().getTime()+temp.getRepeatInterval()*counter);
                             taskSet.add(temp);

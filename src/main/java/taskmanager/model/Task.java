@@ -21,7 +21,7 @@ public class Task implements Cloneable,Serializable{
     private boolean newActive;
     private boolean repeatable;
     public static Date currDate = new Date();
-    public final static SimpleDateFormat format = new SimpleDateFormat("dd MM yyyy HH:mm");
+    public final static SimpleDateFormat FORMAT = new SimpleDateFormat("dd MM yyyy HH:mm");
 
     /**
      * Sets flag that task is repeatable.
@@ -57,7 +57,7 @@ public class Task implements Cloneable,Serializable{
     public Task(String newTitle, String date) throws ParseException,IOException{
 
         this.newTitle = newTitle;
-        this.newTime = format.parse(date);
+        this.newTime = FORMAT.parse(date);
         this.repeatable = false;
         this.newActive = true;
         if(newTime.before(currDate))throw new IOException("Wrong date!");
@@ -75,8 +75,8 @@ public class Task implements Cloneable,Serializable{
      */
     public Task(String newTitle,String startDate,String endDate,int intervalTime) throws ParseException,IOException{
         this.newTitle = newTitle;
-        this.newTime = format.parse(startDate);
-        this.newEndTime = format.parse(endDate);
+        this.newTime = FORMAT.parse(startDate);
+        this.newEndTime = FORMAT.parse(endDate);
         this.intervalTime = intervalTime;
         this.repeatable = true;
         this.newActive = true;
@@ -132,7 +132,7 @@ public class Task implements Cloneable,Serializable{
      * @throws ParseException
      */
     public void setNewEndTime(String newEndTime) throws ParseException{
-        this.newEndTime = format.parse(newEndTime);
+        this.newEndTime = FORMAT.parse(newEndTime);
     }
 
     /**
@@ -142,7 +142,7 @@ public class Task implements Cloneable,Serializable{
      * @throws IOException
      */
     public void setTime(String newDate) throws ParseException,IOException{
-        this.newTime = format.parse(newDate);
+        this.newTime = FORMAT.parse(newDate);
 //        if(newTime.before(currDate)) throw new IOException("Wrong date!");
         this.repeatable = false;
 
@@ -192,8 +192,8 @@ public class Task implements Cloneable,Serializable{
      */
     void setTime(String start, String end, int interval)throws ParseException,IOException{
         if(interval<=0)throw new IOException("Interval can't be less or equal 0");
-        this.newTime = format.parse(start);
-        this.newEndTime = format.parse(end);
+        this.newTime = FORMAT.parse(start);
+        this.newEndTime = FORMAT.parse(end);
         if(newTime.before(currDate)||newEndTime.before(currDate)) throw new IOException("Wrong date!");
         this.intervalTime = interval;
         this.repeatable = true;
@@ -218,7 +218,7 @@ public class Task implements Cloneable,Serializable{
     public  Date nextTimeAfter(String date) throws ParseException,IOException{
 
         if(this.newActive) {
-            this.currentTime = format.parse(date);
+            this.currentTime = FORMAT.parse(date);
             if ((currentTime.before(newTime) || currentTime.equals(newTime)) && (!repeatable)) {
                 return newTime;
             } else {
@@ -295,12 +295,12 @@ public class Task implements Cloneable,Serializable{
             active = "active";
         }
         if (this.isRepeatable()) {
-            return ("\"" + this.getTitle() + "\"" +" from " + (Task.format.format(this.getTime())) +
-                     " to " + (Task.format.format(this.getEndTime()))  + " Repeated in "
+            return ("\"" + this.getTitle() + "\"" +" from " + (Task.FORMAT.format(this.getTime())) +
+                     " to " + (Task.FORMAT.format(this.getEndTime()))  + " Repeated in "
                     + Task.calculateIntervalTime(this.getRepeatInterval()) +
                     " Task is " + active +  "\n");
         } else {
-            return ("\"" + this.getTitle() + "\"" + " at " + (Task.format.format(this.getTime())) + " Task is " +
+            return ("\"" + this.getTitle() + "\"" + " at " + (Task.FORMAT.format(this.getTime())) + " Task is " +
                     active +  "\n");
         }
 

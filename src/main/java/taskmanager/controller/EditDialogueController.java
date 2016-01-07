@@ -1,11 +1,8 @@
 package taskmanager.controller;
 
+import javafx.scene.control.*;
 import taskmanager.model.Task;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class EditDialogueController {
     public Task temp;
-    private static final org.slf4j.Logger Log = LoggerFactory.getLogger(EditDialogueController.class);
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(EditDialogueController.class);
 
     @FXML
     private Button addButton;
@@ -81,41 +78,51 @@ public class EditDialogueController {
             intervalField.setVisible(false);
             hoursLabel.setVisible(false);
         }
-        Log.debug("Fields enabled according to the task");
+        LOG.debug("Fields enabled according to the task");
     }
 
     public void addButtonHandler() throws IOException,ParseException{
-        if(!isRepeated.isSelected()) {
-            temp.setTime(startDateField.getText());
-            temp.setTitle(titleField.getText());
-            Log.debug("Non-repeated task is edited");
-        }
-        else{
-            temp.setTime(startDateField.getText());
-            temp.setTitle(titleField.getText());
-            temp.setNewEndTime(endDateField.getText());
-            temp.setIntervalTime((int) TimeUnit.HOURS.toMillis(Integer.valueOf(intervalField.getText())));
-            temp.setRepeatable(isRepeated.isSelected());
-            Log.debug("Repeated task is edited");
+        try {
 
+            if (!isRepeated.isSelected()) {
+                temp.setTime(startDateField.getText());
+                temp.setTitle(titleField.getText());
+                LOG.debug("Non-repeated task is edited");
+            } else {
+                temp.setTime(startDateField.getText());
+                temp.setTitle(titleField.getText());
+                temp.setNewEndTime(endDateField.getText());
+                temp.setIntervalTime((int) TimeUnit.HOURS.toMillis(Integer.valueOf(intervalField.getText())));
+                temp.setRepeatable(isRepeated.isSelected());
+                LOG.debug("Repeated task is edited");
+
+            }
+            Stage stage = (Stage) addButton.getScene().getWindow();
+            stage.close();
+            LOG.debug("Edit window closed");
         }
-        Stage stage = (Stage) addButton.getScene().getWindow();
-        stage.close();
-        Log.debug("Edit window closed");
+        catch (Exception e){
+            LOG.warn("Error called if input is wrong",e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Wrong input");
+            alert.setHeaderText("Check all the fields!");
+            alert.setContentText("Fields should not be empty, date format should be according to the tooltip, interval can't be less or equal 0!");
+            alert.showAndWait();
+        }
     }
 
     public void cancelButtonHandler(){
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
-        Log.debug("Edit window closed by cancel button");
+        LOG.debug("Edit window closed by cancel button");
 
     }
     public void deleteButtonHandler(){
         Main.arrayTaskList.remove(temp);
-        Log.debug("Task is removed from the list");
+        LOG.debug("Task is removed from the list");
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
-        Log.debug("Edit window closed");
+        LOG.debug("Edit window closed");
 
 
     }

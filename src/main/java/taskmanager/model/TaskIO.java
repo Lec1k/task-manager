@@ -166,12 +166,12 @@ public class TaskIO {
             }
             if (tasks.getTask(i).isRepeatable()) {
 
-                fileWriter.write("\"" + tasks.getTask(i).getTitle() + "\"" + " from " + (Task.format.format(tasks.getTask(i).getTime())) +
-                        " to " + (Task.format.format(tasks.getTask(i).getEndTime())) + " every " + tasks.getTask(i).getRepeatInterval()
+                fileWriter.write("\"" + tasks.getTask(i).getTitle() + "\"" + " from " + (Task.FORMAT.format(tasks.getTask(i).getTime())) +
+                        " to " + (Task.FORMAT.format(tasks.getTask(i).getEndTime())) + " every " + tasks.getTask(i).getRepeatInterval()
                         + "(" + Task.calculateIntervalTime(tasks.getTask(i).getRepeatInterval()) + ")" +
                         " " + active + end + "\n");
             } else {
-                fileWriter.write("\"" + tasks.getTask(i).getTitle() + "\"" + " from " + (Task.format.format(tasks.getTask(i).getTime())) + " " +
+                fileWriter.write("\"" + tasks.getTask(i).getTitle() + "\"" + " from " + (Task.FORMAT.format(tasks.getTask(i).getTime())) + " " +
                         active + end + "\n");
             }
 
@@ -209,12 +209,12 @@ public class TaskIO {
                     end = ";";
                 }
                 if (tasks.getTask(i).isRepeatable()) {
-                    bufferedWriter.write("\"" + tasks.getTask(i).getTitle() + "\"" + '\n' + (Task.format.format(tasks.getTask(i).getTime())) +
-                            (Task.format.format(tasks.getTask(i).getEndTime())) + '\n' + tasks.getTask(i).getRepeatInterval()
+                    bufferedWriter.write("\"" + tasks.getTask(i).getTitle() + "\"" + '\n' + (Task.FORMAT.format(tasks.getTask(i).getTime())) +
+                            (Task.FORMAT.format(tasks.getTask(i).getEndTime())) + '\n' + tasks.getTask(i).getRepeatInterval()
                             + Task.calculateIntervalTime(tasks.getTask(i).getRepeatInterval()) +
                             " " + active + end + "\n");
                 } else {
-                    bufferedWriter.write("\"" + tasks.getTask(i).getTitle() + "\"" + " at " + (Task.format.format(tasks.getTask(i).getTime())) + " " +
+                    bufferedWriter.write("\"" + tasks.getTask(i).getTitle() + "\"" + " at " + (Task.FORMAT.format(tasks.getTask(i).getTime())) + " " +
                             active + end + "\n");
                 }
 

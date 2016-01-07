@@ -12,7 +12,7 @@ import java.text.ParseException;
 
 public class Controller {
 
-    private static final org.slf4j.Logger Log = LoggerFactory.getLogger(Controller.class);
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(Controller.class);
 
     @FXML
     private Label todayDate;
@@ -34,13 +34,13 @@ public class Controller {
     private TextField fromTextField;
     @FXML
     private TextField toTextField;
-    Tooltip t = new Tooltip("Date format: DD MM YYYY HH:MM");
+    Tooltip t = new Tooltip("Date FORMAT: DD MM YYYY HH:MM");
 
 
 
 
    private  void setTodayDate(){
-       todayDate.setText("Today date is " + Task.format.format(Task.currDate).toString());
+       todayDate.setText("Today date is " + Task.FORMAT.format(Task.currDate).toString());
    }
 
     public void dataFormatInfo(){
@@ -53,7 +53,7 @@ public class Controller {
         System.exit(0);
     }
     public void addButtonHandler() throws IOException{
-        Log.debug("Add task dialogue window called");
+        LOG.debug("Add task dialogue window called");
         StartDialogue.startAddDialog();
     }
 
@@ -73,32 +73,40 @@ public class Controller {
             if (inputId.getText().matches("\\d+\\d?+\\d?")) {
                 Task temp = Main.arrayTaskList.getTask(Integer.valueOf(inputId.getText()));
 
-                Log.debug("Task by id was found");
+                LOG.debug("Task by id was found");
                 StartDialogue.startEditDialogue(temp);
-                Log.debug("Edit dialogue window called");
+                LOG.debug("Edit dialogue window called");
             } else {
                 for (int i = 0; i < Main.arrayTaskList.size(); i++) {
                     if (Main.arrayTaskList.getTask(i).getTitle().equals(inputId.getText())) {
-                        Log.debug("Task by name was found");
+                        LOG.debug("Task by name was found");
                         Task temp = Main.arrayTaskList.getTask(i);
                         check=true;
                         StartDialogue.startEditDialogue(temp);
-                        Log.debug("Edit dialogue window called");
+                        LOG.debug("Edit dialogue window called");
 
                     }
                 }
                 if(!check && !(inputId.getText().length()==0)){
-                    Log.debug("Error called if  input is wrong");
+                    LOG.warn("Error called if there is no task with such title");
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Wrong input");
                     alert.setHeaderText("There is no task with such title");
                     alert.showAndWait();
                 }
-                else {throw new Exception();}
+                else {
+                    if(!check) {
+                        LOG.warn("Error called if field is empty");
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Empty find field");
+                        alert.setHeaderText("Enter title or id of the task");
+                        alert.showAndWait();
+                    }
+                }
             }
         }
         catch (Exception e ){
-            Log.debug("Error called if  input is wrong");
+            LOG.warn("Error called if  input is wrong", e);
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Wrong input");
             alert.setHeaderText("Check find field!");
@@ -115,15 +123,15 @@ public class Controller {
         try {
             if(fromTextField.getText().length()==0 || toTextField.getText().length()==0){
                 incomingTextArea.setText((Main.arrayTaskList).toString());
-                Log.debug("Text area filled with tasks");
+                LOG.debug("Text area filled with tasks");
               }
             else {
                 incomingTextArea.setText((Main.arrayTaskList.incoming(fromTextField.getText(),
                         toTextField.getText())).toString());
-                Log.debug("Text area filled with tasks with specific dates chosen by user");
+                LOG.debug("Text area filled with tasks with specific dates chosen by user");
             }
             if (incomingTextArea.getText().length()==0){
-                Log.debug("Warning called if list of tasks is empty");
+                LOG.warn("Warning called if list of tasks is empty");
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("List is empty");
                 alert.setHeaderText("Add new tasks to be shown");
@@ -133,10 +141,10 @@ public class Controller {
             }
         }
         catch (ParseException e){
-            Log.debug("Error called if date input is wrong");
+            LOG.warn("Error called if date input is wrong",e);
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Wrong input");
-            alert.setHeaderText("Check Date format!");
+            alert.setHeaderText("Check Date FORMAT!");
             alert.showAndWait();
         }
     }
