@@ -72,7 +72,8 @@ public class AddDialogueController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Wrong input");
             alert.setHeaderText("Check all the fields!");
-            alert.setContentText("Fields should not be empty, date format should be according to the tooltip, interval can't be less or equal 0!");
+            alert.setContentText("Fields should not be empty, date format should be according to the tooltip, interval can't be less or equal 0," +
+                                  "End date can't be before Start date!");
             alert.showAndWait();
         }
     }

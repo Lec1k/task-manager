@@ -80,7 +80,7 @@ public class Task implements Cloneable,Serializable{
         this.intervalTime = intervalTime;
         this.repeatable = true;
         this.newActive = true;
-        if (newTime.before(currDate)||newEndTime.before(currDate)) throw new IOException("Wrong date!");
+        if (newTime.before(currDate)||newEndTime.before(currDate)||newEndTime.before(newTime)) throw new IOException("Wrong date!");
         if (intervalTime<=0)throw new IOException("Wrong interval, can't be less or equal 0!");
     }
 
