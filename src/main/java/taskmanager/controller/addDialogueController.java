@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by LeC1K on 30.12.2015.
  */
-public class addDialogueController {
+public class AddDialogueController {
 
-    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(addDialogueController.class);
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(AddDialogueController.class);
 
     @FXML
     private Button addButton;
