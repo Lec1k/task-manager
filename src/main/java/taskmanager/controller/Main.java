@@ -28,7 +28,7 @@ public class Main extends Application {
             LOG.debug("Saving files and closing the taskmanager.");
         }
         catch (Exception e ){
-            e.printStackTrace();
+            LOG.debug("Saving file IOexception",e);
         }
     }
 
